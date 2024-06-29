@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Recommendations</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f4f8;
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(52, 152, 219, 0.1);
+            animation: pulse 15s infinite;
+            z-index: -1;
+        }
+        body::before {
+            top: -150px;
+            left: -150px;
+        }
+        body::after {
+            bottom: -150px;
+            right: -150px;
+            animation-delay: -5s;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0.2;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        h3 {
+            color: #3498db;
+            margin-top: 0;
+        }
+        p {
+            margin: 5px 0;
+        }
+        strong {
+            color: #2c3e50;
+        }
+        a {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recommended Medicines for {{ indication }}</h1>
+    <ul>
+        {% for med in recommended_medicines %}
+            <li>
+                <h3>{{ med['Name'] }}</h3>
+                <p><strong>Category:</strong> {{ med['Category'] }}</p>
+                <p><strong>Dosage Form:</strong> {{ med['Dosage Form'] }}</p>
+                <p><strong>Strength:</strong> {{ med['Strength'] }}</p>
+                <p><strong>Manufacturer:</strong> {{ med['Manufacturer'] }}</p>
+                <p><strong>Classification:</strong> {{ med['Classification'] }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>
