@@ -1,4 +1,4 @@
-# codsoft-task2_medicine_recommendation_system
+
 # Medicine Recommendation System
 
 The Medicine Recommendation System is a web application built using Flask, a Python web framework. It provides a user-friendly interface to recommend medicines based on selected indications. This system aims to assist users in finding suitable medicines quickly and efficiently by categorizing medicines according to their indications.
